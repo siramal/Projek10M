@@ -52,3 +52,22 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+document.getElementById("contactForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
+    
+    // Create the WhatsApp message text
+    const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
+    
+    // Set the recipient's WhatsApp number (replace with your number)
+    const whatsappNumber = 'https://wa.me/6285717618772';
+    
+    // Redirect to WhatsApp
+    window.open(`${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+});
